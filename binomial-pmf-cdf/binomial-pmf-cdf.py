@@ -1,0 +1,26 @@
+import numpy as np
+from scipy.special import comb
+
+def binomial_pmf_cdf(n, p, k):
+    """
+    Compute Binomial PMF and CDF.
+    
+    Parameters:
+    n : int (number of trials)
+    p : float (probability of success)
+    k : int (value)
+    
+    Returns:
+    pmf : float
+    cdf : float
+    """
+    
+    # PMF
+    pmf = comb(n, k) * (p ** k) * ((1 - p) ** (n - k))
+    
+    # CDF
+    cdf = 0
+    for i in range(k + 1):
+        cdf += comb(n, i) * (p ** i) * ((1 - p) ** (n - i))
+    
+    return float(pmf), float(cdf)
