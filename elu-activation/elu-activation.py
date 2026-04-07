@@ -1,0 +1,7 @@
+import math
+
+def elu(x, alpha):
+    """
+    Apply ELU activation to each element.
+    """
+    return [y if y > 0 else alpha * (math.exp(y) - 1) for y in x]
